@@ -7,9 +7,13 @@ import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 import java.util.UUID;
+import lombok.Getter;
+import lombok.Setter;
 
 
 @Entity
+@Getter
+@Setter
         public class Patient {
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,6 +26,8 @@ import java.util.UUID;
         @Email
         @Column(unique = true)
         private String email;
+        @NotNull
+        private String address;
 
         @NotNull
         private LocalDate dateOfBirth;
