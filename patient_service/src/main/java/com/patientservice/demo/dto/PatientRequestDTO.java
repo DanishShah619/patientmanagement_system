@@ -1,5 +1,6 @@
 package com.patientservice.demo.dto;
 
+import com.patientservice.demo.dto.validators.CreatePatientValidationmGroup;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -24,7 +25,7 @@ private String name;
     private  String address;
      @NotBlank
     private String dateOfBirth;
-     @NotNull
+     @NotBlank(groups = CreatePatientValidationmGroup.class)
     private String registeredDate;
 
 

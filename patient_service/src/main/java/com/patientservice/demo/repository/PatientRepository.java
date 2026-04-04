@@ -16,4 +16,6 @@ public interface PatientRepository extends JpaRepository<Patient, UUID> {
 
 
     boolean existsByEmail(@NotBlank(message = "cannot be blank") @Email(message = "email should be valid") String email);
+
+    boolean existsByEmailAndIdNot(@NotBlank(message = "cannot be blank") @Email(message = "email should be valid") String email, UUID id);
 }
