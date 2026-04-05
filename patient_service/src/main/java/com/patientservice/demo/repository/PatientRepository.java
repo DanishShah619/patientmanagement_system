@@ -2,6 +2,8 @@ package com.patientservice.demo.repository;
 
 
 import com.patientservice.demo.model.Patient;
+
+
 import java.util.UUID;
 
 import jakarta.validation.constraints.Email;
@@ -18,4 +20,6 @@ public interface PatientRepository extends JpaRepository<Patient, UUID> {
     boolean existsByEmail(@NotBlank(message = "cannot be blank") @Email(message = "email should be valid") String email);
 
     boolean existsByEmailAndIdNot(@NotBlank(message = "cannot be blank") @Email(message = "email should be valid") String email, UUID id);
+
+
 }
