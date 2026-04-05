@@ -2,8 +2,8 @@ POST http://localhost:4000/patients
 Content-Type: application/json
 
 {
-"name": "DanishShanil",
-"email":"shahdan619@email.com",
+"name": "DanishShanilShah",
+"email":"shahdan6196@email.com",
 "address":"123 main street45",
 "dateOfBirth":"1995-09-09",
 "registeredDate":"2025-12-21"
