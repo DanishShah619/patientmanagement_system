@@ -6,7 +6,12 @@ spring:
   cloud:
     gateway:
       routes:
-
+        - id: auth-service-route
+          uri: http://auth-service:4005
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=0
 
         # Route for /api/patients/** to patient-service
         - id: patient-service-route
@@ -14,8 +19,8 @@ spring:
           predicates:
             - Path=/api/patients/**
           filters:
-            - StripPrefix=1
-
+            - StripPrefix=0
+            - JwtValidation
 
         # Route for /api/docs/patients to patient-service /v3/api-docs
         - id: api-docs-patient-route
@@ -24,3 +29,10 @@ spring:
             - Path=/api-docs/patients
           filters:
             - RewritePath=/api-docs/patients,/v3/api-docs
+
+        - id: api-docs-auth-route
+          uri: http://auth-service:4005
+          predicates:
+            - Path=/api-docs/auth
+          filters:
+            - RewritePath=/api-docs/auth,/v3/api-docs
